@@ -75,9 +75,9 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
                 height, width, duration = data["height"], data["width"], data["duration"]
                 print(f'd: {duration}, w: {width}, h:{height}')
                 try:
-                    thumb_path = acc.download_media(msg.video.thumbs[0].file_id)
+                    thumb_path = thumbnail(sender)
                 except Exception:
-                    thumb_path = None
+                    thumb_path = acc.download_media(msg.video.thumbs[0].file_id)
                 await client.send_video_note(
                     chat_id=sender,
                     video_note=file,
@@ -97,9 +97,9 @@ async def get_msg(userbot, client, bot, sender, edit_id, msg_link, i):
                 height, width, duration = data["height"], data["width"], data["duration"]
                 print(f'd: {duration}, w: {width}, h:{height}')
                 try:
-                    thumb_path = acc.download_media(msg.video.thumbs[0].file_id)
+                    thumb_path = thumbnail(sender)
                 except Exception:
-                    thumb_path = None
+                    thumb_path = acc.download_media(msg.video.thumbs[0].file_id)
                 await client.send_video(
                     chat_id=sender,
                     video=file,
